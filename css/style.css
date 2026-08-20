@@ -973,8 +973,9 @@ body.mode-album .gallery { --stage-size: min(960px, calc(200svh - 1080px)); }
   body.mode-wall .thumb-zone { overflow: visible; }
   body.mode-wall .stage-block { padding: 20px 16px 8px; }
   body.mode-wall .gallery { --stage-size: min(280px, 70vw); }
-  /* 手机画册球:比桌面(200svh-1080)减 40%,并以内容宽(100vw-32px)防横向溢出 */
-  body.mode-album .gallery { --stage-size: min(calc(100vw - 32px), calc(120svh - 648px)); }
+  /* 手机画册球:画册页面可滚动,高度无需约束;只受内容宽(100vw-32px)限制,
+     上限 560px(平板/小桌面),保证大而完整且不横向溢出 */
+  body.mode-album .gallery { --stage-size: min(calc(100vw - 32px), 560px); }
 }
 
 @media (prefers-reduced-motion: reduce) {
