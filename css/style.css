@@ -580,6 +580,21 @@ body.mode-wall .stage-close {
   transition: color 0.2s, border-color 0.2s, transform 0.15s;
 }
 .pager-btn:hover { color: var(--text); border-color: var(--line-strong); transform: scale(1.06); }
+
+/* 画册模式:球可能撑满容器宽度,按钮脱离文档流悬浮在舞台区左右两侧,
+   提升图层(z-index 3)保证球溢出也始终可点击 */
+body.mode-album .stage-zone { position: relative; }
+body.mode-album .pager-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  flex: none;
+}
+body.mode-album #navPrev { left: 8px; }
+body.mode-album #navNext { right: 8px; }
+body.mode-album .pager-btn:hover { transform: translateY(-50%) scale(1.06); }
+body.mode-album .pager-btn:active { transform: translateY(-50%) scale(0.98); }
 .pager-btn:active { transform: scale(0.98); }
 
 .stage-block {
